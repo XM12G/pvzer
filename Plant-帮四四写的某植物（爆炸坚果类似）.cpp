@@ -49,7 +49,7 @@ int main() {
 
 					tong[i] = 0;
 
-					cout <<"tong"<< i<<endl;
+					
 
 				}
 
@@ -71,7 +71,7 @@ int main() {
 
 					tong[i] = 1;
 
-					cout << "plant" << i << endl;
+					
 
 				}
 
