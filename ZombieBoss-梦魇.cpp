@@ -1,4 +1,4 @@
-﻿#include "pvzclass.h"
+#include "pvzclass.h"
 #include <iostream>
 
 using namespace std;
@@ -10,6 +10,11 @@ int main() {
 	if (pid) {
 		PVZ* p = new PVZ(pid);
 		EnableBackgroundRunning();
+		int zombienum = 0;
+		PVZ::Zombie* zombie[500];
+		int tong[500];
+		int t1 = 0;
+		srand(1024);
 		//BOSS：梦魇
 		//技能1：窗口缩小
 		/*
@@ -41,11 +46,36 @@ int main() {
 				SetWindowPos(PVZ::Memory::mainwindowhandle, NULL, 200, 200, a, b, SWP_SHOWWINDOW);
 			}
 			Sleep(2000);//延时
-			
-			
-		}*/
 
-		
+
+		}*/
+		//技能2：移动
+		while (p->BaseAddress) {
+			//初始化：获取所有僵尸
+			if (zombienum!=p->ZombiesCount) {
+				for (int i = 0; i < zombienum; i++)
+				{
+					delete zombie[i];
+				}
+				zombienum = p->GetAllZombies(zombie);
+		    }
+
+			for (int i = 0; i < zombienum; i++)
+			{
+				if (zombie[i]->Type==ZombieType::BackupDancer and tong[i]!=1) {
+					zombie[i]->SetBodyHp = 100000;
+					tong[i] = 1;
+					t1++;
+				}
+				
+			}
+			if (t1>0) {
+				Sleep(2000);
+			}
+
+
+		}
+
 		delete p;
 	}
 
@@ -67,6 +97,6 @@ int main() {
 	*/
 
 	return 0;
-	
+
 
 }
