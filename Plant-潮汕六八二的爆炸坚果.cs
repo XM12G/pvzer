@@ -16,7 +16,7 @@ namespace Main
                 {
                     foreach(var Event in PvzEvent.GetEvent())
                     {
-                        if(Event.EventType == PvzEventType.PlantHit && Event.ThisPlant.Type == PlantType.坚果墙)
+                        if(Event.EventType == PvzEventType.PlantHit && Event.ThisPlant.Type == PlantType.高坚果)
                         {
                             Event.ThisZombie.Free_Addres_1 = 1;
                         }
@@ -32,7 +32,7 @@ namespace Main
                     }
                     foreach(var Plant in Plant.GetPlants())
                     {
-                        if(Plant.Life <= 0 && Plant.Type == PlantType.坚果墙)
+                        if(Plant.Life <= 0 && Plant.Type == PlantType.高坚果)
                         {
                             foreach(var Zombie in Zombie.GetZombies())
                             {
