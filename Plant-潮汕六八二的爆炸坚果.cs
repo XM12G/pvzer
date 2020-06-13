@@ -7,7 +7,7 @@ namespace Main
     {
         public static void Main()
         {
-            Memory.GetPid("植物大战僵尸中文版");
+            Memory.GetPid("PlantsVsZombies Plus Version 95");
             Memory.Init();
             PvzEvent.ClearEvent();
             while(true)
@@ -16,7 +16,7 @@ namespace Main
                 {
                     foreach(var Event in PvzEvent.GetEvent())
                     {
-                        if(Event.EventType == PvzEventType.PlantHit && Event.ThisPlant.Type == PlantType.向日葵)
+                        if(Event.EventType == PvzEventType.PlantHit && Event.ThisPlant.Type == PlantType.坚果墙)
                         {
                             Event.ThisZombie.Free_Addres_1 = 1;
                         }
@@ -32,7 +32,7 @@ namespace Main
                     }
                     foreach(var Plant in Plant.GetPlants())
                     {
-                        if(Plant.Life <= 0 && Plant.Type == PlantType.向日葵)
+                        if(Plant.Life <= 0 && Plant.Type == PlantType.坚果墙)
                         {
                             foreach(var Zombie in Zombie.GetZombies())
                             {
